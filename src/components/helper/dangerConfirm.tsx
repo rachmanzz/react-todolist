@@ -25,8 +25,8 @@ const ConfirmTemplate = ({ icon, text, onCancel, cancelText, onConfirm, confirmT
       <div>{icon}</div>
       <div>{text}</div>
       <div className="flex mt-4 flex-row gap-4">
-        {onCancel && <button onClick={() => onCancel(onClose)} className="py-2 px-8 shadow bg-[#F4F4F4] rounded-full">{cancelText || "Batal"}</button>}
-        {onConfirm && <button onClick={onButtonConfirmClick} className={`py-2 px-8 shadow text-white bg-[#ED4C5C] rounded-full${progress? " bg-opacity-10" : ""}`}>{confirmText || "Hapus"}</button>}
+        {onCancel && <button data-cy="modal-delete-cancel-button" onClick={() => onCancel(onClose)} className="py-2 px-8 shadow bg-[#F4F4F4] rounded-full">{cancelText || "Batal"}</button>}
+        {onConfirm && <button data-cy="modal-delete-confirm-button" onClick={onButtonConfirmClick} className={`py-2 px-8 shadow text-white bg-[#ED4C5C] rounded-full${progress? " bg-opacity-10" : ""}`}>{confirmText || "Hapus"}</button>}
       </div>
     </div>
   )

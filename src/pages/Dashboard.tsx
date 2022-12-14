@@ -108,7 +108,7 @@ function Dashboard() {
     <div className="flex flex-col">
       <div className="flex flex-row justify-between">
         <h1 data-cy="activity-title" className="text-[#111111] text-[24pt] md:text-[28pt] font-bold">Activity</h1>
-        <button onClick={onCreateActivity} className="bg-[#16ABF8] py-2 px-5 md:px-10 text-xl rounded-full text-white">{onCreateLoading ? <LoadingIcon color="white" size={24} /> : "+ Tambah"}</button>
+        <button data-cy="activity-add-button" onClick={onCreateActivity} className="bg-[#16ABF8] py-2 px-5 md:px-10 text-xl rounded-full text-white">{onCreateLoading ? <LoadingIcon color="white" size={24} /> : "+ Tambah"}</button>
       </div>
       <div className="grid grid-cols-2 pb-10 md:grid-cols-4 mt-16 gap-4">
         {activities.map(

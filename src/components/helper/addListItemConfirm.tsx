@@ -92,7 +92,7 @@ const ConfirmTemplate = ({ onClose, onConfirm, defPriority, defValue }: confirmT
       <div className="flex flex-col py-4 px-5 border-b border-b-gray-200">
         <div className="flex flex-col">
           <label className="text-xs font-bold py-2">NAMA ITEM LIST</label>
-          <input onChange={changeTitleValue} value={title} placeholder="Tambah nama Item" className="w-full border rounded border-gray-200 p-2" />
+          <input data-cy="modal-add-name-input" onChange={changeTitleValue} value={title} placeholder="Tambah nama Item" className="w-full border rounded border-gray-200 p-2" />
         </div>
         <div className='flex mt-8 flex-col'>
           <label className="text-xs font-bold py-2">PRIORITY</label>
@@ -106,7 +106,7 @@ const ConfirmTemplate = ({ onClose, onConfirm, defPriority, defValue }: confirmT
             </select> */}
             <div className="relative w-full z-40 h-16">
               <div className="absolute w-full md:w-[230px]">
-                <button onClick={() => setOpenSelect(prev => !prev)} className={`border w-full border-[#E5E5E5] gap-7 inline-flex justify-between px-3 py-2 ${isOpenSelect ? "rounded-t bg-[#E5E5E5]" : "rounded"}`}>
+                <button data-cy="modal-add-priority-dropdown" onClick={() => setOpenSelect(prev => !prev)} className={`border w-full border-[#E5E5E5] gap-7 inline-flex justify-between px-3 py-2 ${isOpenSelect ? "rounded-t bg-[#E5E5E5]" : "rounded"}`}>
                   <div className="inline-flex gap-3 items-center"><div className="w-3 h-3 rounded-full" style={{ backgroundColor: selectedPriority.color }} /> {selectedPriority.label}</div>
                   <CevronDown className={(isOpenSelect && "rotate-180") || "rotate-0"} size={24} />
                 </button>
@@ -131,7 +131,7 @@ const ConfirmTemplate = ({ onClose, onConfirm, defPriority, defValue }: confirmT
         </div>
       </div>
       <div className="flex py-4 px-5 justify-end flex-row h-[88px] gap-4">
-        {<button disabled={title === ""} onClick={onButtonConfirmClick} className={`px-8 shadow text-white bg-[#16ABF8] rounded-full${title === "" || progress ? " bg-opacity-25" : ""}`}>Simpan</button>}
+        {<button data-cy="modal-add-save-button" disabled={title === ""} onClick={onButtonConfirmClick} className={`px-8 shadow text-white bg-[#16ABF8] rounded-full${title === "" || progress ? " bg-opacity-25" : ""}`}>Simpan</button>}
       </div>
     </div>
   )

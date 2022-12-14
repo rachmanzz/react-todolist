@@ -133,7 +133,7 @@ const ButtonAction = ({ container, onCreateTodo, onSortSelection }: btnActionPro
           <div ref={ref} className="absolute w-64 z-50 border translate-y-[160px] shadow-md rounded overflow-hidden bg-white border-[#E5E5E5]">
             {selection.map(
               (item, index) => (
-                <div onClick={onSelectionSelect(index, item.value)} className={`flex hover:bg-gray-100 cursor-pointer items-center py-3 gap-10 px-5 justify-between flex-row p-2${(index + 1) !== selection.length ? " border-b border-b-[#E5E5E5]" : ""}`} key={index}>
+                <div data-cy="sort-selection" onClick={onSelectionSelect(index, item.value)} className={`flex hover:bg-gray-100 cursor-pointer items-center py-3 gap-10 px-5 justify-between flex-row p-2${(index + 1) !== selection.length ? " border-b border-b-[#E5E5E5]" : ""}`} key={index}>
                   <div className="flex items-center flex-row gap-3">{item.icon} <span>{item.text}</span></div>
                   <div>{item.select && <SelectedIcon size={24} />}</div>
                 </div>
@@ -377,14 +377,14 @@ function TodoItem() {
               (item, index) => (
                 <div key={index} data-cy="todo-item" className="flex flex-row px-5 items-center h-[80px] justify-between rounded-xl shadow-md bg-white">
                   <div className="flex items-center flex-row">
-                    <input onChange={onCheckUpItem(item.id, item.is_active ? 0 : 1, index)} checked={!item.is_active} type={"checkbox"} className="w-6 h-6" />
+                    <input data-cy="todo-item-checkbox" onChange={onCheckUpItem(item.id, item.is_active ? 0 : 1, index)} checked={!item.is_active} type={"checkbox"} className="w-6 h-6" />
                     <div className="flex ml-5 gap-4 items-center flex-row">
                       <span style={{ backgroundColor: priorityColor(item.priority) }} className="w-3 h-3 rounded-full"></span>
-                      <span className={(!item.is_active ? "line-through text-gray-300" : "")}>{item.title}</span>
+                      <span data-cy="todo-title" className={(!item.is_active ? "line-through text-gray-300" : "")}>{item.title}</span>
                       <button onClick={onIpdateItem(item.id, item.title, item.priority)}><PenIcon size={20} /></button>
                     </div>
                   </div>
-                  <button onClick={onDeleteItem(item)}><TrashIcon size={24} /></button>
+                  <button data-cy="todo-item-delete-button" onClick={onDeleteItem(item)}><TrashIcon size={24} /></button>
                 </div>
               )
             )}
