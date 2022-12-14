@@ -7,12 +7,12 @@ type confirmNotifType = {
   text: string
 }
 const ConfirmTemplate = ({icon, text}: confirmNotifType) => (
-  <div className="flex rounded-lg gap-3 flex-row shadow-lg min-h-[68px] items-center px-4 bg-white min-w-[400px]">
+  <div data-cy="modal-information" className="flex rounded-lg gap-3 flex-row shadow-lg min-h-[68px] items-center px-4 bg-white sm:min-w-[300px] md:min-w-[400px]">
     {icon} <span>{text}</span>
   </div>
 )
 
-export default (props: confirmNotifType) => {
+export default function notification(props: confirmNotifType) {
   confirmAlert({
     customUI: () => (<ConfirmTemplate {...props} />)
   });

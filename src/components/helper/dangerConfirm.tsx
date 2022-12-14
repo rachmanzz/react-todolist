@@ -21,7 +21,7 @@ const ConfirmTemplate = ({ icon, text, onCancel, cancelText, onConfirm, confirmT
     onConfirm && onConfirm(onClose, ()=> setProgress(false));
   }
   return (
-    <div className="flex py-5 rounded-lg gap-2 flex-col shadow-lg min-h-[68px] items-center px-4 bg-white min-w-[400px]">
+    <div data-cy="modal-delete" className="flex py-5 rounded-lg gap-2 flex-col shadow-lg min-h-[68px] items-center px-4 bg-white min-w-[250px]  md:min-w-[400px]">
       <div>{icon}</div>
       <div>{text}</div>
       <div className="flex mt-4 flex-row gap-4">
@@ -32,7 +32,7 @@ const ConfirmTemplate = ({ icon, text, onCancel, cancelText, onConfirm, confirmT
   )
 }
 
-export default (props: confirmDangerType) => {
+export default function dangerConfirm(props: confirmDangerType) {
   confirmAlert({
     customUI: ({ onClose }) => (<ConfirmTemplate onClose={onClose} {...props} />)
   });

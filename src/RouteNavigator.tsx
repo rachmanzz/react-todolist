@@ -6,11 +6,11 @@ import TodoItem from "./pages/TodoItem";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <ContainerWrapper>{(loading) => <Dashboard {...loading}/>}</ContainerWrapper>,
+    element: <ContainerWrapper><Dashboard /></ContainerWrapper>,
   },
   {
     path: "/detail/:item_id",
-    element: <ContainerWrapper>{(loading) => <TodoItem {...loading}/>}</ContainerWrapper>,
+    element: <ContainerWrapper><TodoItem/></ContainerWrapper>,
   },
 ]);
 
