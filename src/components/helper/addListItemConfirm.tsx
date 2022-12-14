@@ -131,7 +131,7 @@ const ConfirmTemplate = ({ onClose, onConfirm, defPriority, defValue }: confirmT
         </div>
       </div>
       <div className="flex py-4 px-5 justify-end flex-row h-[88px] gap-4">
-        {<button data-cy="modal-add-save-button" onClick={onButtonConfirmClick} className={`px-8 shadow text-white bg-[#16ABF8] rounded-full${title === "" || progress ? " bg-opacity-25" : ""}`}>Simpan</button>}
+        <button disabled={title === ""} data-cy="modal-add-save-button" onClick={onButtonConfirmClick} className={`px-8 shadow text-white bg-[#16ABF8] rounded-full${title === "" || progress ? " bg-opacity-25" : ""}`}>Simpan</button>
       </div>
     </div>
   )
