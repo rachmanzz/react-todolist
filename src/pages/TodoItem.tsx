@@ -380,7 +380,7 @@ function TodoItem() {
                     <input data-cy="todo-item-checkbox" onChange={onCheckUpItem(item.id, item.is_active ? 0 : 1, index)} checked={!item.is_active} type={"checkbox"} className="w-6 h-6" />
                     <div className="flex ml-5 gap-4 items-center flex-row">
                       <span style={{ backgroundColor: priorityColor(item.priority) }} className="w-3 h-3 rounded-full"></span>
-                      <span data-cy="todo-title" className={(!item.is_active ? "line-through text-gray-300" : "")}>{item.title}</span>
+                      <span data-cy="todo-item-title" className={(!item.is_active ? "line-through text-gray-300" : "")}>{item.title}</span>
                       <button onClick={onIpdateItem(item.id, item.title, item.priority)}><PenIcon size={20} /></button>
                     </div>
                   </div>
