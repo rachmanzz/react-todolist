@@ -134,8 +134,8 @@ const ButtonAction = ({ container, onCreateTodo, onSortSelection }: btnActionPro
             {selection.map(
               (item, index) => (
                 <div data-cy="sort-selection" onClick={onSelectionSelect(index, item.value)} className={`flex hover:bg-gray-100 cursor-pointer items-center py-3 gap-10 px-5 justify-between flex-row p-2${(index + 1) !== selection.length ? " border-b border-b-[#E5E5E5]" : ""}`} key={index}>
-                  <div className="flex items-center flex-row gap-3">{item.icon} <span>{item.text}</span></div>
-                  <div>{item.select && <SelectedIcon size={24} />}</div>
+                  <div  className="flex items-center flex-row gap-3"><div data-cy="sort-selection-icon">{item.icon}</div> <span data-cy="sort-selection-title">{item.text}</span></div>
+                  <div data-cy={item.select? "sort-selection-selected": ""}>{item.select && <SelectedIcon size={24} />}</div>
                 </div>
               )
             )}
@@ -391,7 +391,7 @@ function TodoItem() {
           </div>
           {activity?.todo_items.length === 0 && (<DivWrapper paddings={[1, 5, 1, 5]} className="flex cursor-pointer my-10">
             {([width]) => (
-              <div onClick={onCreateItem}>
+              <div data-cy="todo-empty-state" onClick={onCreateItem}>
                 <EmptyTodo width={width >= 768 ? width - 100 : width} />
               </div>
             )}
